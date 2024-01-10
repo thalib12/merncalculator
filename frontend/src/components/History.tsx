@@ -23,8 +23,12 @@ const History = () => {
     ];
 
     const getExpressions = async () => {
-        const { data } = await axios.get(endPoints.getAllExpressions)
-        setExpressions(data)
+         try {
+            const { data } = await axios.get(endPoints.getAllExpressions)
+            setExpressions(data)
+        } catch (e) {
+            alert("Failed to fetch data.")
+        }
     }
 
     useEffect(() => {
